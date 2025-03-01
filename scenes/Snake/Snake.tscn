@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0va2ytqccx74"]
+
+[ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="1_fbqbb"]
+[ext_resource type="Script" path="res://scripts/Snake/char.gd" id="2_dkon3"]
+[ext_resource type="Script" path="res://scripts/Snake/food.gd" id="3_v1f2x"]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_fbqbb")
+
+[node name="Char" type="Node2D" parent="."]
+script = ExtResource("2_dkon3")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="Food" type="Node2D" parent="."]
+script = ExtResource("3_v1f2x")
