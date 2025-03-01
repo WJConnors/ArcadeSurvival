@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw0ccr4006rq6"]
+
+[ext_resource type="Script" path="res://scripts/SpaceInvaders/invader.gd" id="1_at8h0"]
+[ext_resource type="Texture2D" uid="uid://sl3mhpgl55t1" path="res://assets/SpaceInvaders/WinterEnemies.png" id="1_yycut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7504p"]
+size = Vector2(31, 27)
+
+[node name="Invader" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_at8h0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yycut")
+region_enabled = true
+region_rect = Rect2(0, 32, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_7504p")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

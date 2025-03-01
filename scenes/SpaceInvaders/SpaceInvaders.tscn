@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://qk3buvxgspj"]
+
+[ext_resource type="PackedScene" uid="uid://c3mhb04vnhp2y" path="res://scenes/SpaceInvaders/santa.tscn" id="1_eprdj"]
+[ext_resource type="Script" path="res://scripts/SpaceInvaders/space_invaders.gd" id="1_nwsgv"]
+
+[node name="SpaceInvaders" type="Node2D"]
+script = ExtResource("1_nwsgv")
+
+[node name="Santa" parent="." instance=ExtResource("1_eprdj")]
+position = Vector2(640, 860)
+
+[node name="EnemyContainer" type="Node" parent="."]
+
+[node name="WaveTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1

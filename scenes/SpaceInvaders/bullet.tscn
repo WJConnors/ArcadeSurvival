@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj4csfm7pdsfm"]
+
+[ext_resource type="Texture2D" uid="uid://dm20s1l3iyi8i" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Props/Original/Gifts/gift_red.png" id="1_g7jp2"]
+[ext_resource type="Script" path="res://scripts/SpaceInvaders/bullet.gd" id="1_hoqu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwb5u"]
+size = Vector2(56, 60)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_hoqu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_g7jp2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dwb5u")

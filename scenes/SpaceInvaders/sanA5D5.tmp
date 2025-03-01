@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3mhb04vnhp2y"]
+
+[ext_resource type="Script" path="res://scripts/SpaceInvaders/santa.gd" id="1_b2pj2"]
+[ext_resource type="Texture2D" uid="uid://c4vop2vqv0xh6" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/character_still.png" id="1_g2btc"]
+[ext_resource type="Texture2D" uid="uid://c3rno316hhhey" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Left/character_walk_left_01.png" id="2_4wgdd"]
+[ext_resource type="Texture2D" uid="uid://bovp7ovbblfdl" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Left/character_walk_left_02.png" id="3_tyckp"]
+[ext_resource type="Texture2D" uid="uid://bgpavb1hyrd6i" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Left/character_walk_left_03.png" id="4_d1gek"]
+[ext_resource type="Texture2D" uid="uid://cfpwvuyyjo0hc" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Right/character_walk_right_01.png" id="5_oq5ke"]
+[ext_resource type="Texture2D" uid="uid://df3ogntcww73y" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Right/character_walk_right_02.png" id="6_e0t2k"]
+[ext_resource type="Texture2D" uid="uid://cwpp2jj823x1s" path="res://assets/SpaceInvaders/snowytilesandsprites/Sprites/Character/Walk Animation Right/character_walk_right_03.png" id="7_6aly5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgx54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g2btc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4wgdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tyckp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d1gek")
+}],
+"loop": true,
+"name": &"left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_oq5ke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e0t2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6aly5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1m0u"]
+size = Vector2(13, 14)
+
+[node name="Santa" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_b2pj2")
+speed = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_hgx54")
+animation = &"left"
+frame_progress = 0.280142
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_k1m0u")
