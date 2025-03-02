@@ -4,9 +4,18 @@ const GRID_SIZE := 64  # Matches grid cell size
 const GRID_WIDTH := 20
 const GRID_HEIGHT := 15
 
+@export var apple_texture: Texture2D  # 🔥 Assign your apple image in the Inspector
+
 var position_grid := Vector2.ZERO  # Food position in grid coordinates
+var sprite: Sprite2D  # Apple sprite
 
 func _ready():
+	sprite = Sprite2D.new()
+	sprite.texture = apple_texture  # 🔥 Use the apple texture
+	sprite.scale = Vector2(2, 2)  # 🔥 Doubles size (32x32 → 64x64)
+	sprite.centered = false  # Align with grid position
+	add_child(sprite)
+
 	spawn_food()
 
 func spawn_food():
@@ -17,17 +26,3 @@ func spawn_food():
 
 	# Set the food position
 	position = position_grid * GRID_SIZE
-
-	# Draw the food as a red square
-	_draw_food()
-
-func _draw_food():
-	# Remove old food visuals
-	for child in get_children():
-		child.queue_free()
-
-	# Create a red square for food
-	var rect = ColorRect.new()
-	rect.color = Color.RED
-	rect.size = Vector2(GRID_SIZE, GRID_SIZE)
-	add_child(rect)

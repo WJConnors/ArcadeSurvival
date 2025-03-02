@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0va2ytqccx74"]
+[gd_scene load_steps=5 format=3 uid="uid://b0va2ytqccx74"]
 
 [ext_resource type="Script" path="res://scripts/Snake/snake.gd" id="1_fbqbb"]
 [ext_resource type="Script" path="res://scripts/Snake/char.gd" id="2_dkon3"]
 [ext_resource type="Script" path="res://scripts/Snake/food.gd" id="3_v1f2x"]
+[ext_resource type="Texture2D" uid="uid://daprn3ngkoyqr" path="res://assets/Snake/apple.png" id="4_gg8r3"]
 
 [node name="Snake" type="Node2D"]
 script = ExtResource("1_fbqbb")
@@ -16,3 +17,4 @@ autostart = true
 
 [node name="Food" type="Node2D" parent="."]
 script = ExtResource("3_v1f2x")
+apple_texture = ExtResource("4_gg8r3")
