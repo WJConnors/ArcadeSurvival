@@ -49,7 +49,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1m0u"]
-size = Vector2(13, 14)
+size = Vector2(59, 64)
 
 [node name="Santa" type="CharacterBody2D"]
 motion_mode = 1
@@ -62,7 +62,7 @@ animation = &"left"
 frame_progress = 0.572774
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+position = Vector2(-2.5, 0)
 shape = SubResource("RectangleShape2D_k1m0u")
 
 [node name="Timer" type="Timer" parent="."]

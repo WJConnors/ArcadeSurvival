@@ -5,6 +5,9 @@ extends CharacterBody2D  # 🚀 Best for movement with collisions
 const SCREEN_WIDTH := 1280
 const SCREEN_HEIGHT := 960
 
+func _ready():
+	add_to_group("player")
+
 func _process(_delta):
 	# Get input direction
 	var direction := Vector2.ZERO

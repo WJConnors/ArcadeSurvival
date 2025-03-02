@@ -4,6 +4,7 @@ var points_bar
 var points_label
 
 var score := 0  # 🔥 Store the player's score
+var mult := 1
 
 func _ready():
 	add_to_group("game_controller")  # 🔥 Allows other nodes to find it
@@ -12,5 +13,11 @@ func _ready():
 	points_label = main_scene.get_node("VBoxContainer/Label")
 		
 func add_score(amount: int):
-	score += amount
+	score += amount * mult
 	points_bar.value = score
+	
+func game_lost():
+	mult = 1
+
+func game_switched():
+	mult += 1

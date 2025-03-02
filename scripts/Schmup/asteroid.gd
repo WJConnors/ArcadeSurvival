@@ -14,3 +14,12 @@ func _process(delta):
 	# Remove asteroid if it's far off-screen
 	if position.x < -100 or position.x > 1380 or position.y < -100 or position.y > 1060:
 		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"): 
+		lost()
+		
+func lost():
+	var game_controller = get_tree().get_first_node_in_group("main")
+	game_controller.reset_current_game()

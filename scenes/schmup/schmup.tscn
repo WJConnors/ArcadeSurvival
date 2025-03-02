@@ -1,18 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://b21xg5xp08f6y"]
+[gd_scene load_steps=6 format=3 uid="uid://b21xg5xp08f6y"]
 
 [ext_resource type="PackedScene" uid="uid://dts5q3avpv58e" path="res://scenes/schmup/player.tscn" id="1_5wk55"]
 [ext_resource type="Script" path="res://scripts/Schmup/schmup.gd" id="1_el4fy"]
 [ext_resource type="PackedScene" uid="uid://biuxtkeabeaiu" path="res://scenes/schmup/asteroid.tscn" id="2_ipi30"]
+[ext_resource type="PackedScene" uid="uid://b2p2lyfexwr0w" path="res://scenes/schmup/points.tscn" id="3_nab8g"]
+[ext_resource type="Texture2D" uid="uid://be0ngnk2lubcn" path="res://assets/Schmup/bg.png" id="4_rf8lv"]
 
 [node name="Schmup" type="Node2D"]
 script = ExtResource("1_el4fy")
 asteroid_scene = ExtResource("2_ipi30")
+point_scene = ExtResource("3_nab8g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1383.0
+offset_bottom = 1098.0
+texture = ExtResource("4_rf8lv")
+stretch_mode = 4
 
 [node name="Player" parent="." instance=ExtResource("1_5wk55")]
 position = Vector2(640, 720)
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="AsteroidTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[node name="PointsTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="DynamicObjects" type="Node2D" parent="."]
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="PointsTimer" to="." method="_on_points_timer_timeout"]

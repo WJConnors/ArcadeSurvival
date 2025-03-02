@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 var lastDir: bool = true
 
+func _ready() -> void:
+	add_to_group("player") 
+
 func _process(_delta):
 	var direction = Input.get_axis("si_left", "si_right")  # Left/Right movement
 	velocity.x = direction * speed  # Set movement speed
