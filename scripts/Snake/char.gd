@@ -59,3 +59,5 @@ func _update_snake_visuals():
 
 func grow():
 	growing = true  # Snake will grow on the next move
+	var game_controller = get_tree().get_first_node_in_group("game_controller")
+	game_controller.add_score(1)
