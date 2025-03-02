@@ -8,5 +8,8 @@ func _ready():
 func _on_area_entered(area):
 	# If hit by a bullet, destroy self
 	if area.is_in_group("bullets"):
-		queue_free()  # Destroy enemy
+		var game_controller = get_tree().get_first_node_in_group("game_controller")
+		game_controller.add_score(1)
 		area.queue_free()  # Destroy bullet
+		queue_free()  # Destroy enemy
+		

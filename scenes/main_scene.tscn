@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt4xt77y6wl1q"]
+[gd_scene load_steps=5 format=3 uid="uid://dt4xt77y6wl1q"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_q6v0o"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="2_5ab3q"]
+[ext_resource type="FontFile" uid="uid://dardba6mv0eh5" path="res://assets/PixelOperator8-Bold.ttf" id="3_552ss"]
+[ext_resource type="Texture2D" uid="uid://d2apf3bekbt78" path="res://assets/BG.png" id="3_e026n"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -12,6 +14,31 @@ script = ExtResource("1_q6v0o")
 
 [node name="GameController" type="Node" parent="."]
 script = ExtResource("2_5ab3q")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_e026n")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_552ss")
+theme_override_font_sizes/font_size = 50
+text = "Points"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+show_percentage = false
 
 [node name="Border" type="ColorRect" parent="."]
 layout_mode = 0
