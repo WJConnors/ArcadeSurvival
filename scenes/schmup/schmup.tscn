@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b21xg5xp08f6y"]
+
+[ext_resource type="PackedScene" uid="uid://dts5q3avpv58e" path="res://scenes/schmup/player.tscn" id="1_5wk55"]
+[ext_resource type="Script" path="res://scripts/Schmup/schmup.gd" id="1_el4fy"]
+[ext_resource type="PackedScene" uid="uid://biuxtkeabeaiu" path="res://scenes/schmup/asteroid.tscn" id="2_ipi30"]
+
+[node name="Schmup" type="Node2D"]
+script = ExtResource("1_el4fy")
+asteroid_scene = ExtResource("2_ipi30")
+
+[node name="Player" parent="." instance=ExtResource("1_5wk55")]
+position = Vector2(640, 720)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
