@@ -77,7 +77,6 @@ func grow():
 	game_controller.add_score(3)
 
 func lost():
-	print("Snake lost!")  # Debugging
 	var game_controller = get_tree().get_first_node_in_group("main")
 	if game_controller:
 		game_controller.reset_current_game()

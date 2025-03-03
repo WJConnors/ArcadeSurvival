@@ -1,5 +1,9 @@
 extends Control
 
+@onready	 var snake_game = preload("res://scenes/Snake/Snake.tscn").instantiate()
+@onready var space_invaders = preload("res://scenes/SpaceInvaders/SpaceInvaders.tscn").instantiate()
+@onready var shmup_game = preload("res://scenes/schmup/Schmup.tscn").instantiate()
+
 @onready var viewport_container = $SubViewportContainer
 @onready var viewport = $SubViewportContainer/SubViewport
 @onready var border = $Border
@@ -24,11 +28,6 @@ func _ready():
 	# 🔥 Check if UI elements are properly found
 	print("VBoxContainer: ", vbox_container)
 	print("PointLabel: ", point_label)
-
-	# Load all three games
-	var snake_game = load("res://scenes/Snake/Snake.tscn").instantiate()
-	var space_invaders = load("res://scenes/SpaceInvaders/SpaceInvaders.tscn").instantiate()
-	var shmup_game = load("res://scenes/Schmup/schmup.tscn").instantiate()
 
 	# Store in the games array
 	games = [space_invaders, snake_game, shmup_game]
