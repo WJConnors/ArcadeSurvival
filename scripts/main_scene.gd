@@ -1,6 +1,7 @@
 extends Control
 
-@onready	 var snake_game = preload("res://scenes/Snake/Snake.tscn").instantiate()
+#Loading games into scene
+@onready var snake_game = preload("res://scenes/Snake/Snake.tscn").instantiate()
 @onready var space_invaders = preload("res://scenes/SpaceInvaders/SpaceInvaders.tscn").instantiate()
 @onready var shmup_game = preload("res://scenes/schmup/schmup.tscn").instantiate()
 

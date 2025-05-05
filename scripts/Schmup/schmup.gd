@@ -8,6 +8,7 @@ extends Node2D
 const SCREEN_WIDTH := 1280
 const SCREEN_HEIGHT := 960
 
+#Find objects from hierarchy
 @onready var spawn_timer = $AsteroidTimer
 @onready var points_timer = $PointsTimer
 @onready var dynamic_objects = $DynamicObjects
